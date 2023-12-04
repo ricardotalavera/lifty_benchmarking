@@ -89,6 +89,7 @@ if (es_numeric and es_timestamp and es_date and publisher != ""):
        anio=df_gam["Date"][i].year
        mes=df_gam["Date"][i].month
        dia=df_gam["Date"][i].day
+       
        for k,pub in enumerate(df_range["Publisher"]):
             if pub==publisher: 
                 dia1=df_range["Range1"][k].day
@@ -99,7 +100,7 @@ if (es_numeric and es_timestamp and es_date and publisher != ""):
                 anio2=df_range["Range2"][k].year
                 hora1=df_range["Range1"][k].hour
                 hora2=df_range["Range2"][k].hour
-                if(anio == anio1 and mes== mes1 and dia == dia1 and df_gam["Hour"][i]==hora1) or (anio == anio2 and mes== mes2 and dia == dia2 and df_gam["Hour"][i]==hora2):
+                if(anio == anio1 and mes== mes1 and dia == dia1 and int(df_gam["Hour"][i])==int(hora1)) or (anio == anio2 and mes== mes2 and dia == dia2 and int(df_gam["Hour"][i])==int(hora2)):
                         df_gam["Seller"][i]="BENCHMARK"
                         break
                 else:
